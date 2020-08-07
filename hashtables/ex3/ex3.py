@@ -2,9 +2,25 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    # key: count ?
+    # value: integer
 
-    return result
+    length = len(arrays)
+    cache = {}
+    results = []
+    
+    for integer in arrays[0]:
+        count = 0
+        for array in arrays:
+            if integer in array: 
+                count += 1
+                if count == length:
+                    results.append(integer)
+                    cache[length] = results
+            
+        
+    
+    return cache[length]
 
 
 if __name__ == "__main__":
@@ -14,4 +30,12 @@ if __name__ == "__main__":
     arrays.append(list(range(2000000, 3000000)) + [1, 2, 3])
     arrays.append(list(range(3000000, 4000000)) + [1, 2, 3])
 
+    #print(intersection(arrays))
+
+
+    arrays = [
+    [1,2,3,4],
+    [1,2,5,6],
+    [1,2,7,8]
+    ]
     print(intersection(arrays))
