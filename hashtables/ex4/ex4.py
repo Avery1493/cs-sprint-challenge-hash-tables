@@ -2,8 +2,22 @@ def has_negatives(a):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    # store positives in cache
+    cache = {}
+    result = []
+    for integer in a:
+        # 0 has no negative 
+        if integer == abs(integer) and integer != 0:
+            # key: -
+            # value: +
+            cache[-integer] = integer
 
+    # if negative in list 
+    for integer in a:
+        if integer in cache:
+            result.append(cache[integer])
+            
+    # return cache
     return result
 
 
